@@ -21,7 +21,13 @@ pipeline{
                 input('do yoy still wanted to proceed')
             }
             
-       
+        stage('apply') {
+            steps {
+                sh '''
+                terraform apply --auto-approve
+                '''
+            }
+        }
         }
 
        
