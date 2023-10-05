@@ -20,6 +20,7 @@ pipeline{
             steps {
                 input('do yoy still wanted to proceed')
             }
+        }
             
         stage('apply') {
             steps {
@@ -28,7 +29,7 @@ pipeline{
                 '''
             }
         }
-        }
+        
 
        
 
