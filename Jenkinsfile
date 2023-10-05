@@ -1,11 +1,18 @@
 pipeline{
     agent { node { label 'terra' } }
+    options {
+        timeout(time: 3,unit:'MINUTES')
+    }
+    environment {
+        USER="mohan"
+    }
 
     stages{
         stage('init') {
             steps {
                 sh '''
                 terraform init
+                printenv
                 '''
             }
         }
