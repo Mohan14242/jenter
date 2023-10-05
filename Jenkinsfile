@@ -5,10 +5,24 @@ pipeline{
         stage('init') {
             steps {
                 sh '''
-                terraform destroy --auto-approve
+                terraform init
                 '''
             }
         }
+        stage('plan') {
+            steps {
+                sh '''
+                terraform plan
+                '''
+            }
+        }
+        stage('validation') {
+            steps {
+                input('do yoy still wanted to proceed')
+            }
+            
+        }
+
        
 
       
