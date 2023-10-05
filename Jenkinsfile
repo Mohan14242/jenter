@@ -1,0 +1,36 @@
+pipeline{
+    agent { node { label 'centos' } }
+
+    stages{
+        stage('init') {
+            steps {
+                sh '''
+                terraform init
+                '''
+            }
+        }
+       
+        stage('plan') {
+            steps {
+                sh '''
+                terraform plan
+                '''
+            }
+        }
+
+      
+    }
+
+    post{
+        always {
+            echo " i willalways run  wheather job fails or pass i dont matter"
+        }
+        success{
+            echo "i will run onyl when the pipeline is success"
+        }
+        failure{
+            echo " i will run only when the  pipeline fails"
+        }
+    }
+    
+}
