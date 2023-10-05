@@ -1,5 +1,5 @@
 pipeline{
-    agent { node { label 'centos' } }
+    agent { node { label 'jenter' } }
 
     stages{
         stage('init') {
